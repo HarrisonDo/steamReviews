@@ -161,13 +161,11 @@ def save_data(reviews, index, appid):
     # 解决乱码问题
     # print(json.dumps(list, ensure_ascii=False))
     # 'steamReviews_' + str(appid)+'.xlsx'
-    # wb = load_workbook(r"F:\democode\steam\test.xlsx")
     wb = load_workbook(r"steamReviews_" + str(appid)+".xlsx")
     # f = open(r"response1.json", "a", encoding="UTF-8")
     f = open(r"response_"+str(appid)+".json", "a", encoding="UTF-8")
     json.dump(list, f, ensure_ascii=False, indent=3)
     f.close()
-    # F:\democode\steam\steamApi.py
     # sheet = wb["Sheet1"]
     sheet = wb['steamReviews_' + str(appid)]
 
@@ -209,7 +207,6 @@ def save_data(reviews, index, appid):
             for key, value in one.items():
                 sheet.cell(2, column_index).value = value
                 column_index = column_index + 1
-    # wb.save(r"F:\democode\steam\test.xlsx")
     wb.save(r"steamReviews_" + str(appid)+".xlsx")
     # print(index, '=============index')
     print("文件保存成功！")
